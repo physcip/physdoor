@@ -1,0 +1,9 @@
+div
+{
+	border: 1px solid;
+}
+
+#loginform td, #loginform input
+{
+	font-size: 24pt;
+}
