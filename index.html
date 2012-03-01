@@ -4,8 +4,9 @@
 <link rel="stylesheet" href="style.css" />
 <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="login.js"></script>
+<script type="text/javascript" src="websocket.js"></script>
 </head>
-<body onload="update()">
+<body onload="update(); wsConnect('ws://localhost:9988/');">
 <div id="login">
 <form id="loginform">
 <table>
@@ -31,5 +32,6 @@ Currently logged in
 <input type="button" onclick="logout()" value="Log out" />
 </div>
 <input type="button" onclick="update()" value="Update" />
+<span id="wsStatus"></span>
 </body>
 </html>

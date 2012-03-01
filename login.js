@@ -8,6 +8,7 @@ function login()
 			$('#username').val("");
 			$('#password').val("");
 			update();
+			wsSend("login");
 		}
 		else // display error
 		{
@@ -21,6 +22,7 @@ function login()
 function logout()
 {
 	$.get('login.php?action=logout', update());
+	wsSend("logout");
 }
 
 function update()
