@@ -14,6 +14,7 @@ function wsConnect(url)
 
 	s.onopen = function() {
 		wsStatusEl.innerText = 'connected!';
+		update();
 	}
 
 	s.onclose = function() {
