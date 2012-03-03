@@ -1,5 +1,10 @@
 <?php
-	// TODO: Before printing JSON, check whether any errors were printed
+	function errorhandler($errno, $errstr)
+	// Properly wrap error messages into JSON
+	{
+		$GLOBALS['phperrors'][] = $errstr;
+	}
+	set_error_handler('errorhandler');
 	
 	require_once 'conf.inc.php';
 	require_once 'ldap.inc.php';
@@ -11,6 +16,8 @@
 	header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 	header('Content-type: application/json');
 	
+	$json = array();
+	
 	switch ($_GET['action'])
 	{
 		case 'login': // untested
@@ -20,14 +27,15 @@
 				log_entry($user[0][ldap_uid][0],0);
 				// screenlock('unlock');
 				// open_door(netio_host, netio_port, netio_contact);
-				echo json_encode(TRUE);
+				$json['loggedin'] = TRUE;
 			}
 			else
 			{
+				$json['loggedin'] = FALSE;
 				if ($user === FALSE)
-					echo json_encode(array('error' => 'Invalid user name'));
+					$json['error'] = 'Invalid user name';
 				else
-					echo json_encode(array('error' => 'Invalid password'));
+					$json['error'] = 'Invalid password';
 			}
 		break;
 		case 'logout': // untested
@@ -42,12 +50,23 @@
 			{
 				$userinfo = get_ldap_user($user);
 				$name = $userinfo[0]['cn'][0];
-				echo json_encode(array('name' => $name));
+				
+				$json['loggedin'] = TRUE;
+				$json['name'] = $name;
 			}
 			else
 			{
-				echo json_encode(FALSE);
+				$json['loggedin'] = FALSE;
 			}
 		break;
 	}
+	
+	if (isset($phperrors))
+	{
+		if (!isset($json['error']))
+			$json['error'] = "";
+		$json['error'] .= implode('<br />', $phperrors);
+	}
+	
+	echo json_encode($json);
 ?>

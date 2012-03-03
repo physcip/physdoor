@@ -20,8 +20,6 @@
 <td><input type="password" name="password" id="password" /></td>
 </tr>
 <tr>
-<td colspan="2" id="errormsg"></td>
-<tr>
 <td colspan="2" align="right"><input type="reset" value="Cancel" /><input type="button" value="Log in" onclick="login()" /></td>
 </tr>
 </table>
@@ -34,5 +32,6 @@ Currently logged in
 </div>
 <input type="button" onclick="update()" value="Update" />
 <span id="wsStatus"></span>
+<div id="errormsg" style="display: none"></div>
 </body>
 </html>
