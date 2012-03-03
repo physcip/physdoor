@@ -1,12 +1,13 @@
 <html>
 <head>
 <title>PhysCIP Door Access</title>
+<?php include_once 'conf.inc.php'; ?>
 <link rel="stylesheet" href="style.css" />
 <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript" src="websocket.js"></script>
 </head>
-<body onload="update(); wsConnect('ws://localhost:9988/');">
+<body onload="update(); wsConnect('ws://<?php echo $_SERVER['HTTP_HOST'] . ':' . websocket_port ?>');">
 <div id="login">
 <form id="loginform">
 <table>

@@ -17,5 +17,7 @@
 	//define('mysql_pass', '');
 	define('mysql_db', 'door');
 	
+	define('websocket_port', 9988);
+	
 	@include_once 'conf_secret.inc.php';
 ?>

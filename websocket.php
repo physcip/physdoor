@@ -2,6 +2,8 @@
 <?php
 	chdir(dirname(__FILE__));
 	
+	require_once 'conf.inc.php';
+	
 	require_once 'WebSockets/WebSocket/Server.php';
 	require_once 'WebSockets/WebSocket/User.php';
 	require_once 'WebSockets/WebSocket/Frame.php';
@@ -17,6 +19,6 @@
 		}
 	}
 	
-	$server = new wsChat('127.0.0.1', 9988);
+	$server = new wsChat('0.0.0.0', websocket_port);
 	$server->process();
 ?>
