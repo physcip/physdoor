@@ -17,7 +17,7 @@
 			$user = get_ldap_user($_POST['user']);
 			if ($user !== FALSE && check_ldap_password($user[0]['dn'], $_POST['password']))
 			{
-				// log_entry($user,0);
+				log_entry($user[0][ldap_uid][0],0);
 				// screenlock('unlock');
 				// open_door(netio_host, netio_port, netio_contact);
 				echo json_encode(TRUE);
@@ -33,7 +33,7 @@
 		case 'logout': // untested
 			if ($user = logged_on_user())
 			{
-				// log_entry($user,1);
+				log_entry($user,1);
 				// screenlock('lock');
 			}
 		break;
