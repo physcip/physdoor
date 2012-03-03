@@ -1,28 +1,33 @@
 function login()
 {
 	$.post('login.php?action=login', { user: $('#username').val(), password: $('#password').val() }, 
-	function(data)
-	{
-		if (data == true) // success
+		function(data)
 		{
-			$('#username').val("");
-			$('#password').val("");
-			update();
-			wsSend("login");
-		}
-		else // display error
-		{
-			$('#password').val("");
-			$('#errormsg').html(data.error);
-		}
-	},
-	"json");
+			if (data == true) // success
+			{
+				$('#username').val("");
+				$('#password').val("");
+				update();
+				wsSend("login");
+			}
+			else // display error
+			{
+				$('#password').val("");
+				$('#errormsg').html(data.error);
+			}
+		},
+		"json");
 }
 
 function logout()
 {
-	$.get('login.php?action=logout', update());
-	wsSend("logout");
+	$.get('login.php?action=logout', 
+		function(data)
+		{
+			update();
+			wsSend("logout");
+		}
+		);
 }
 
 function update()
@@ -35,6 +40,9 @@ function update()
 				$('#loggedin_name').html(data.name);
 				$('#loggedin').show('slow');
 				$('#login').hide('slow');
+				
+				$('#username').val("");
+				$('#password').val("");
 			}
 			else
 			{
