@@ -2,7 +2,8 @@
 	function errorhandler($errno, $errstr)
 	// Properly wrap error messages into JSON
 	{
-		$GLOBALS['phperrors'][] = $errstr;
+		if (error_reporting() != 0) // the statement that caused the error was not prepended by the @ error-control operator
+			$GLOBALS['phperrors'][] = $errstr;
 	}
 	set_error_handler('errorhandler');
 	
@@ -20,7 +21,7 @@
 	
 	switch ($_GET['action'])
 	{
-		case 'login': // untested
+		case 'login':
 			$user = get_ldap_user($_POST['user']);
 			if ($user !== FALSE && check_ldap_password($user[0]['dn'], $_POST['password']))
 			{
@@ -38,7 +39,7 @@
 					$json['error'] = 'Invalid password';
 			}
 		break;
-		case 'logout': // untested
+		case 'logout':
 			if ($user = logged_on_user())
 			{
 				log_entry($user,1);
@@ -65,7 +66,7 @@
 	{
 		if (!isset($json['error']))
 			$json['error'] = "";
-		$json['error'] .= implode('<br />', $phperrors);
+		$json['error'] .= '<br />' . implode('<br />', $phperrors);
 	}
 	
 	echo json_encode($json);
