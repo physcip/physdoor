@@ -20,7 +20,8 @@
 <td><input type="password" name="password" id="password" /></td>
 </tr>
 <tr>
-<td colspan="2" align="right"><input type="reset" value="Cancel" /><input type="button" value="Log in" onclick="login()" /></td>
+<td colspan="2" align="right"><input type="reset" onclick="display_error()" value="Cancel" />
+<input type="button" value="Log in" onclick="login()" /></td>
 </tr>
 </table>
 </form>
