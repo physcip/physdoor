@@ -8,6 +8,14 @@ function wsError(msg)
 	$('#login').hide('slow');
 	display_error(msg);
 }
+
+function wsStatus()
+{
+	if (s.readyState == 0)
+	{
+		wsError("WebSocket connection timed out. Please make sure your browser supports RFC 6455.");
+	}
+}
 	
 function wsConnect(url)
 {
@@ -15,6 +23,8 @@ function wsConnect(url)
 	//wsStatusEl.innerText = 'connecting...';
 	
 	clearTimeout(wTimeout);
+	
+	wTimeout = window.setTimeout("wsStatus()", 5000);
 
 	/* http://dev.w3.org/html5/websockets/ */ 
 
