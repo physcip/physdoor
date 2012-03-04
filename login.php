@@ -29,6 +29,9 @@
 				screenlock('unlock');
 				// open_door(netio_host, netio_port, netio_contact);
 				$json['loggedin'] = TRUE;
+				
+				$name = $user[0]['cn'][0];
+				$json['name'] = $name;
 			}
 			else
 			{
@@ -44,6 +47,7 @@
 			{
 				log_entry($user,1);
 				screenlock('lock');
+				$json['loggedin'] = FALSE;
 			}
 		break;
 		case 'status':

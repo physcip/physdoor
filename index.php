@@ -8,7 +8,7 @@
 <script type="text/javascript" src="websocket.js"></script>
 <script type="text/javascript" src="VirtualKeyboard/vk_loader.js?vk_layout=DE%20German&vk_skin=air_large"></script>
 </head>
-<body onload="update(); wsConnect('ws://<?php echo $_SERVER['HTTP_HOST'] . ':' . websocket_port ?>');">
+<body onload="wsConnect('ws://<?php echo $_SERVER['HTTP_HOST'] . ':' . websocket_port ?>');">
 <div id="login">
 <form id="loginform">
 <table>
