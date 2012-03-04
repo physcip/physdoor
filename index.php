@@ -31,6 +31,31 @@
 EM.addEventListener(window,'domload',function(){
 	VirtualKeyboard.toggle('username','keyb');
 });
+
+function setkeybindings()
+{
+	$('#kb_benter').mouseup(function() {
+		login();
+		return FALSE;
+		});
+	$('#kb_btab').mouseup(function() {
+		// jump to next field
+		switch ($("*:focus").attr("id"))
+		{
+			case 'username':
+				$('#password').focus();
+			break;
+			case 'password':
+				$('#username').focus();
+			break;
+		}
+		// unfocus button
+		$('#kb_btab').removeClass("kbButtonHover kbButtonDown");
+		// don't execute other handlers
+		return false;
+		});
+}
+window.setTimeout("setkeybindings()", 1000);
 </script>
 </div>
 <div id="loggedin" style="display: none">
