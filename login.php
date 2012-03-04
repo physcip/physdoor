@@ -26,7 +26,7 @@
 			if ($user !== FALSE && check_ldap_password($user[0]['dn'], $_POST['password']))
 			{
 				log_entry($user[0][ldap_uid][0],0);
-				// screenlock('unlock');
+				screenlock('unlock');
 				// open_door(netio_host, netio_port, netio_contact);
 				$json['loggedin'] = TRUE;
 			}
@@ -43,7 +43,7 @@
 			if ($user = logged_on_user())
 			{
 				log_entry($user,1);
-				// screenlock('lock');
+				screenlock('lock');
 			}
 		break;
 		case 'status':

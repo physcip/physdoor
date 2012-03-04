@@ -29,7 +29,8 @@
 				//echo "ERROR for $i: $errno - $errstr<br />\n";
 				$errorcount++;
 			} else {
-				fwrite($fp, $type . "\n");
+				if (@fwrite($fp, $type . "\n") === FALSE)
+					$errorcount++;
 				fclose($fp);
 			}
 		}
