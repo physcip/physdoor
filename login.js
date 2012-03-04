@@ -27,6 +27,7 @@ function login()
 			else // display error
 			{
 				$('#password').val("");
+				$('#password').focus();
 			}
 			
 			display_error(data.error);
@@ -41,6 +42,8 @@ function logout()
 		{
 			//update(); happens automatically when we receive our own WS message
 			wsSend("logout");
+			
+			window.setTimeout("$('#username').focus()", 500);
 			
 			display_error(data.error);
 		}
