@@ -12,3 +12,9 @@ div
 {
 	background-color: red;
 }
+
+#virtualKeyboard #copyrights, #virtualKeyboard select#kb_langselector, #virtualKeyboard select#kb_mappingselector
+{
+
+	display: none;
+}

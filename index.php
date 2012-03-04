@@ -6,6 +6,7 @@
 <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript" src="websocket.js"></script>
+<script type="text/javascript" src="VirtualKeyboard/vk_loader.js?vk_layout=DE%20German&vk_skin=air_large"></script>
 </head>
 <body onload="update(); wsConnect('ws://<?php echo $_SERVER['HTTP_HOST'] . ':' . websocket_port ?>');">
 <div id="login">
@@ -13,11 +14,11 @@
 <table>
 <tr>
 <td>User</td>
-<td><input type="text" name="user" id="username" /></td>
+<td><input type="text" name="user" id="username" onfocus="VirtualKeyboard.attachInput(this)" /></td>
 </tr>
 <tr>
 <td>Password</td>
-<td><input type="password" name="password" id="password" /></td>
+<td><input type="password" name="password" id="password" onfocus="VirtualKeyboard.attachInput(this)" class="VK_no_animate" /></td>
 </tr>
 <tr>
 <td colspan="2" align="right"><input type="reset" onclick="display_error()" value="Cancel" />
@@ -25,6 +26,12 @@
 </tr>
 </table>
 </form>
+<div id="keyb"></div>
+<script type="text/javascript">
+EM.addEventListener(window,'domload',function(){
+	VirtualKeyboard.toggle('username','keyb');
+});
+</script>
 </div>
 <div id="loggedin" style="display: none">
 Currently logged in
