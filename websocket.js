@@ -1,10 +1,18 @@
-var s, wsStatusEl
+var s
+//var wsStatusEl
 var wTimeout
+
+function wsError(msg)
+{
+	$('#loggedin').hide('slow');
+	$('#login').hide('slow');
+	display_error(msg);
+}
 	
 function wsConnect(url)
 {
 	wsStatusEl = document.getElementById('wsStatus')
-	wsStatusEl.innerText = 'connecting...';
+	//wsStatusEl.innerText = 'connecting...';
 	
 	clearTimeout(wTimeout);
 
@@ -13,17 +21,19 @@ function wsConnect(url)
 	s = new WebSocket(url); 
 
 	s.onopen = function() {
-		wsStatusEl.innerText = 'connected!';
+		//wsStatusEl.innerText = 'connected!';
 		update();
 	}
 
 	s.onclose = function() {
-		wsStatusEl.innerText = 'connection closed';
+		//wsStatusEl.innerText = 'connection closed';
+		wsError('<b>WebSocket Error</b><br />The connection to ' + url + ' was closed.');
 		wTimeout = window.setTimeout("wsConnect('" + url + "')", 2000);
 	}
 
 	s.onerror = function(e) {
-		wsStatusEl.innerText = 'error';
+		//wsStatusEl.innerText = 'error';
+		wsError('<b>WebSocket Error</b><br />The connection to ' + url + ' failed with an error:' + e.data);
 		console.log('error', e);
 		wTimeout = window.setTimeout("wsConnect('" + url + "')", 2000);
 	}

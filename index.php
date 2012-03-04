@@ -31,7 +31,6 @@ Currently logged in
 <input type="button" onclick="logout()" value="Log out" />
 </div>
 <input type="button" onclick="update()" value="Update" />
-<span id="wsStatus"></span>
 <div id="errormsg" style="display: none"></div>
 </body>
 </html>
