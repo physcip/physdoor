@@ -19,5 +19,7 @@
 	
 	define('websocket_port', 9988);
 	
+	define('master_name', 'door-pc-1.physcip.uni-stuttgart.de');
+	
 	@include_once 'conf_secret.inc.php';
 ?>

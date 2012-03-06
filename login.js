@@ -1,3 +1,5 @@
+var slTimeout;
+
 function display_error(err)
 {
 	if(typeof(err) == "string")
@@ -71,6 +73,32 @@ function update()
 			}
 			
 			display_error(data.error);
+			
+			if (master) // only master does screen locking
+			{
+				screenlock();
+			}
 		},
 		"json");
+}
+
+function screenlock()
+{
+	// re-lock (or re-unlock) screens every 60 seconds in case a client is rebooted or was unplugged
+	
+	window.clearTimeout(slTimeout);
+	
+	if ($('#loggedin').css('display') == 'none')
+	// nobody is logged in
+	{
+		$.get('login.php?action=lock');
+	}
+	else
+	// somebody is logged in or login/logout is in progress
+	// this gives us a grace period of 60 seconds during which a new person can log in without the screens getting locked
+	{
+		$.get('login.php?action=unlock');
+	}
+	
+	slTimeout = window.setTimeout("screenlock()", 60000);
 }

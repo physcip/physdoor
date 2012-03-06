@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="style.css" />
 <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="login.js"></script>
+<?php if (gethostbyaddr($_SERVER['REMOTE_ADDR']) == master_name) { ?>
+<script type="text/javascript">
+var master = true;
+</script>
+<?php } ?>
 <script type="text/javascript" src="websocket.js"></script>
 <script type="text/javascript" src="VirtualKeyboard/vk_loader.js?vk_layout=DE%20German&vk_skin=air_large"></script>
 </head>
