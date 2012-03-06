@@ -60,16 +60,16 @@ function update()
 			if (data.loggedin == true) // somebody is logged in
 			{
 				$('#loggedin_name').html(data.name);
-				$('#loggedin').show('slow');
-				$('#login').hide('slow');
+				$('#loggedin').slideDown('slow');
+				$('#login').slideUp('slow');
 				
 				$('#username').val("");
 				$('#password').val("");
 			}
 			else
 			{
-				$('#login').show('slow');
-				$('#loggedin').hide('slow');
+				$('#login').slideDown('slow');
+				$('#loggedin').slideUp('slow');
 			}
 			
 			display_error(data.error);
