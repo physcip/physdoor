@@ -16,6 +16,8 @@ function display_error(err)
 
 function login()
 {
+	$('#loggingin').slideDown('slow');
+	$('#keyb').slideUp('slow');
 	$.post('login.php?action=login', { user: $('#username').val(), password: $('#password').val() }, 
 		function(data)
 		{
@@ -33,6 +35,8 @@ function login()
 			}
 			
 			display_error(data.error);
+			$('#loggingin').slideUp('slow');
+			$('#keyb').slideDown('slow');
 		},
 		"json");
 }

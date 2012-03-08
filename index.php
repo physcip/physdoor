@@ -63,6 +63,9 @@ function setkeybindings()
 window.setTimeout("setkeybindings()", 1000);
 </script>
 </div>
+<div id="loggingin" style="display: none">
+Logging in...
+</div>
 <div id="loggedin" style="display: none">
 Currently logged in
 <div id="loggedin_name"></div>

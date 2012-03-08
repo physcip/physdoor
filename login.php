@@ -26,7 +26,7 @@
 			if ($user !== FALSE && check_ldap_password($user[0]['dn'], $_POST['password']))
 			{
 				log_entry($user[0][ldap_uid][0],0);
-				// open_door(netio_host, netio_port, netio_contact);
+				open_door(netio_host, netio_port, netio_contact);
 				$json['loggedin'] = TRUE;
 				
 				$name = $user[0]['cn'][0];
