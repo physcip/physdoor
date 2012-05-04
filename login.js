@@ -46,10 +46,13 @@ function logout()
 	$.get('login.php?action=logout', 
 		function(data)
 		{
-			//update(); happens automatically when we receive our own WS message
-			wsSend("logout");
-			
-			window.setTimeout("$('#username').focus()", 500);
+			if (data.loggedin == false) // success
+			{
+				//update(); happens automatically when we receive our own WS message
+				wsSend("logout");
+				
+				window.setTimeout("$('#username').focus()", 500);
+			}
 			
 			display_error(data.error);
 		}
@@ -61,7 +64,7 @@ function update()
 	$.get('login.php?action=status',
 		function(data)
 		{
-			if (data.loggedin == true) // somebody is logged in
+			if (data.loggedin == true && showloggedinuser) // somebody is logged in and we are not the outside screen
 			{
 				$('#loggedin_name').html(data.name);
 				$('#loggedin').slideDown('slow');

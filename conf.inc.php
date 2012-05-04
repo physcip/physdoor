@@ -1,4 +1,7 @@
 <?php
+	if (!in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), array('door-pc-1.physcip.uni-stuttgart.de', 'door-pc-2.physcip.uni-stuttgart.de')))
+		die('Unauthorized');
+	
 	define('ldap_base', 'dc=purple,dc=physcip,dc=uni-stuttgart,dc=de');
 	define('ldap_server', 'ldaps://purple.physcip.uni-stuttgart.de/');
 	define('ldap_uid', 'uid');
@@ -20,6 +23,7 @@
 	define('websocket_port', 9988);
 	
 	define('master_name', 'door-pc-1.physcip.uni-stuttgart.de');
+	$outside_names = array('door-pc-2.physcip.uni-stuttgart.de');
 	
 	@include_once 'conf_secret.inc.php';
 ?>
