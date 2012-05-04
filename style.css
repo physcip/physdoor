@@ -1,11 +1,100 @@
-div
+body
 {
+	background-image: url(Background.png);
+}
+body, input, p, td
+{
+	font-size: 24pt;
+}
+
+#title
+/* Header */
+{
+	background: linear-gradient(top, #B4BFCE 0%,#889BB3 49%,#7F94B0 50%,#6D83A1 100%);
+	background: -webkit-linear-gradient(top, #B4BFCE 0%,#889BB3 49%,#7F94B0 50%,#6D83A1 100%);
+	color: white;
+	padding: 5px;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#login
+/* Login page */
+{
+}
+
+#loginform
+{
+	float: left;
+}
+#loginform + * /* next element */
+{
+	clear: both;
+}
+
+#login table
+{
+	border-collapse: collapse;
+}
+.formrow
+{
+	background-color: white;
+	color: black;
 	border: 1px solid;
 }
 
-#loginform td, #loginform input
+#updatebutton
 {
-	font-size: 24pt;
+	display: none;
+}
+
+#loginbutton
+{
+	background: linear-gradient(top, #AFCBA2 0%,#2CA92C 50%,#01B301 50%,#46B357 100%);
+	background: -webkit-linear-gradient(top, #AFCBA2 0%,#2CA92C 50%,#01B301 50%,#46B357 100%);
+	color: white;
+	padding: 10px;
+}
+#cancelbutton
+{
+	background: linear-gradient(top, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
+	background: -webkit-linear-gradient(top, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
+	color: white;
+	padding: 10px;
+}
+
+#loggingin
+/* Login in progress */
+{
+	background-color: white;
+	text-align: center;
+}
+
+#loggedin
+/* Currently logged in */
+{
+	background-color: white;
+	text-align: center;
+	line-height: 3em;
+	float: left;
+	height: 75%;
+	width: 100%;
+	position: relative;
+}
+#loggedin_name
+{
+	font-size: 3em;
+}
+#logoutbutton
+{
+	position: absolute;
+	bottom: 0px;
+	margin-bottom: 25px;
+	background: linear-gradient(top, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
+	background: -webkit-linear-gradient(top, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
+	color: white;
+	width: 100%;
 }
 
 #errormsg
@@ -13,8 +102,12 @@ div
 	background-color: red;
 }
 
+#keyb
+{
+	padding-left: 82px;
+}
+
 #virtualKeyboard #copyrights, #virtualKeyboard select#kb_langselector, #virtualKeyboard select#kb_mappingselector
 {
-
 	display: none;
 }

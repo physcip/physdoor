@@ -17,20 +17,21 @@ var showloggedinuser = true;
 <script type="text/javascript" src="VirtualKeyboard/vk_loader.js?vk_layout=DE%20German&vk_skin=air_large"></script>
 </head>
 <body onload="wsConnect('ws://<?php echo $_SERVER['HTTP_HOST'] . ':' . websocket_port ?>');">
+<div id="title">CIP Pool Physik</div>
 <div id="login">
 <form id="loginform">
 <table>
-<tr>
-<td>User</td>
-<td><input type="text" name="user" id="username" onfocus="VirtualKeyboard.attachInput(this)" /></td>
+<tr class="formrow">
+<td class="formlabel">User</td>
+<td class="forminput"><input type="text" name="user" id="username" onfocus="VirtualKeyboard.attachInput(this)" /></td>
+</tr>
+<tr class="formrow">
+<td class="formlabel">Password</td>
+<td class="forminput"><input type="password" name="password" id="password" onfocus="VirtualKeyboard.attachInput(this)" class="VK_no_animate" /></td>
 </tr>
 <tr>
-<td>Password</td>
-<td><input type="password" name="password" id="password" onfocus="VirtualKeyboard.attachInput(this)" class="VK_no_animate" /></td>
-</tr>
-<tr>
-<td colspan="2" align="right"><input type="reset" onclick="display_error()" value="Cancel" />
-<input type="button" value="Log in" onclick="login()" /></td>
+<td colspan="2" align="right"><input type="reset" id="cancelbutton" onclick="display_error()" value="Cancel" />
+<input type="button" id="loginbutton" value="Log in" onclick="login()" /></td>
 </tr>
 </table>
 </form>
@@ -72,9 +73,9 @@ Logging in...
 <div id="loggedin" style="display: none">
 Currently logged in
 <div id="loggedin_name"></div>
-<input type="button" onclick="logout()" value="Log out" />
+<input type="button" id="logoutbutton" onclick="logout()" value="Log out" />
 </div>
-<input type="button" onclick="update()" value="Update" />
+<input type="button" id="updatebutton" onclick="update()" value="Update" />
 <div id="errormsg" style="display: none"></div>
 </body>
 </html>
