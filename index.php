@@ -8,9 +8,13 @@
 <script type="text/javascript">
 <?php if (gethostbyaddr($_SERVER['REMOTE_ADDR']) == master_name) { ?>
 var master = true;
+<?php } else { ?>
+var master = false;
 <?php } ?>
 <?php if (!in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), $outside_names)) { ?>
 var showloggedinuser = true;
+<?php } else { ?>
+var showloggedinuser = false;
 <?php } ?>
 </script>
 <script type="text/javascript" src="websocket.js"></script>

@@ -1,5 +1,6 @@
 <?php
-	if (!in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), array('door-pc-1.physcip.uni-stuttgart.de', 'door-pc-2.physcip.uni-stuttgart.de')))
+	$allowedclients = array('door-pc-1.physcip.uni-stuttgart.de', 'door-pc-2.physcip.uni-stuttgart.de');
+	if (php_sapi_name() != 'cli' && !in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), $allowedclients))
 		die('Unauthorized');
 	
 	define('ldap_base', 'dc=purple,dc=physcip,dc=uni-stuttgart,dc=de');
