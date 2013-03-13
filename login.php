@@ -23,7 +23,7 @@
 	{
 		case 'login':
 			$user = get_ldap_user($_POST['user']);
-			if ($user !== FALSE && check_ldap_password($user[0]['dn'], $_POST['password']))
+			if ($user !== FALSE && check_ldap_password($user[0]['dn'], $_POST['password']) && !in_array($user[0]['uid'][0], $deny_users))
 			{
 				log_entry($user[0][ldap_uid][0],0);
 				open_door(netio_host, netio_port, netio_contact);
@@ -37,6 +37,8 @@
 				$json['loggedin'] = FALSE;
 				if ($user === FALSE)
 					$json['error'] = 'Invalid user name';
+				elseif (in_array($user[0]['uid'][0], $deny_users))
+					$json['error'] = 'User not allowed to log in';
 				else
 					$json['error'] = 'Invalid password';
 			}

@@ -9,7 +9,7 @@
 	//define('ldap_serviceuser', '');
 	//define('ldap_servicepassword', '');
 	
-	define('netio_host', '129.69.74.200');
+	define('netio_host', 'lara.physcip.uni-stuttgart.de');
 	define('netio_port', 50290);
 	define('netio_contact', '4');
 	
@@ -25,6 +25,8 @@
 	
 	define('master_name', 'door-pc-1.physcip.uni-stuttgart.de');
 	$outside_names = array('door-pc-2.physcip.uni-stuttgart.de');
+	
+	$deny_users = array('physreg');
 	
 	@include_once 'conf_secret.inc.php';
 ?>
