@@ -9,7 +9,7 @@
 	//define('ldap_serviceuser', '');
 	//define('ldap_servicepassword', '');
 	
-	define('netio_host', 'lara.physcip.uni-stuttgart.de');
+	define('netio_host', 'vm02.physcip.uni-stuttgart.de');
 	define('netio_port', 50290);
 	define('netio_contact', '4');
 	
