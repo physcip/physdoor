@@ -7,6 +7,14 @@ body, input, p, td
 	font-size: 24pt;
 }
 
+body
+{
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+}
+
 #title
 /* Header */
 {
@@ -100,14 +108,4 @@ body, input, p, td
 #errormsg
 {
 	background-color: red;
-}
-
-#keyb
-{
-	padding-left: 82px;
-}
-
-#virtualKeyboard #copyrights, #virtualKeyboard select#kb_langselector, #virtualKeyboard select#kb_mappingselector
-{
-	display: none;
 }
