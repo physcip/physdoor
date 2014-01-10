@@ -18,7 +18,7 @@ body
 #title
 /* Header */
 {
-	background: linear-gradient(top, #B4BFCE 0%,#889BB3 49%,#7F94B0 50%,#6D83A1 100%);
+	background: linear-gradient(to bottom, #B4BFCE 0%,#889BB3 49%,#7F94B0 50%,#6D83A1 100%);
 	background: -webkit-linear-gradient(top, #B4BFCE 0%,#889BB3 49%,#7F94B0 50%,#6D83A1 100%);
 	color: white;
 	padding: 5px;
@@ -59,14 +59,14 @@ body
 
 #loginbutton
 {
-	background: linear-gradient(top, #AFCBA2 0%,#2CA92C 50%,#01B301 50%,#46B357 100%);
+	background: linear-gradient(to bottom, #AFCBA2 0%,#2CA92C 50%,#01B301 50%,#46B357 100%);
 	background: -webkit-linear-gradient(top, #AFCBA2 0%,#2CA92C 50%,#01B301 50%,#46B357 100%);
 	color: white;
 	padding: 10px;
 }
 #cancelbutton
 {
-	background: linear-gradient(top, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
+	background: linear-gradient(to bottom, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
 	background: -webkit-linear-gradient(top, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
 	color: white;
 	padding: 10px;
@@ -98,11 +98,14 @@ body
 {
 	position: absolute;
 	bottom: 0px;
+	left: 3%;
+	margin-left: 0px;
+	margin-right: 0px;
 	margin-bottom: 25px;
-	background: linear-gradient(top, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
+	background: linear-gradient(to bottom, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
 	background: -webkit-linear-gradient(top, #CBA2A2 0%,#A73C3C 50%,#B30101 50%,#B34646 100%);
 	color: white;
-	width: 100%;
+	width: 96%;
 }
 
 #errormsg
