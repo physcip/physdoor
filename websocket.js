@@ -13,7 +13,9 @@ function wsStatus()
 {
 	if (s.readyState == 0)
 	{
-		wsError("WebSocket connection timed out. Please make sure your browser supports RFC 6455.");
+		wsError("WebSocket connection timed out.<br /> \
+Please make sure your browser supports RFC 6455.<br /> \
+If you are using Firefox, you may need to set <i>network.websocket.allowInsecureFromHTTPS</i>.");
 	}
 }
 	

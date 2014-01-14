@@ -3,6 +3,7 @@
 <title>PhysCIP Door Access</title>
 <?php include_once 'conf.inc.php'; ?>
 <link rel="stylesheet" href="style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
 <script type="text/javascript" src="login.js"></script>
 <script type="text/javascript">
