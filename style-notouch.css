@@ -1,0 +1,13 @@
+input, #loginform
+{
+	display: none;
+}
+#loginoutside
+{
+	display: block;
+	background-color: white;
+}
+#logoutoutside
+{
+	display: inline;
+}

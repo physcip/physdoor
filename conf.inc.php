@@ -23,8 +23,9 @@
 	
 	define('websocket_port', 9988);
 	
-	define('master_name', 'door-pc-1.physcip.uni-stuttgart.de');
-	$outside_names = array('door-pc-2.physcip.uni-stuttgart.de');
+	define('master_name', 'door-pc-2.physcip.uni-stuttgart.de');
+	$outside_names = array();
+	$notouch_names = array('door-pc-1.physcip.uni-stuttgart.de');
 	
 	$deny_users = array('physreg');
 	

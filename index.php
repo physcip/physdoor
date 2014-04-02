@@ -18,11 +18,17 @@ var showloggedinuser = true;
 var showloggedinuser = false;
 <?php } ?>
 </script>
+<?php if (in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), $notouch_names)) { ?>
+<link rel="stylesheet" href="style-notouch.css" />
+<?php }?>
 <script type="text/javascript" src="websocket.js"></script>
 </head>
 <body onload="wsConnect('ws://<?php echo $_SERVER['HTTP_HOST'] . ':' . websocket_port ?>');">
 <div id="title">CIP Pool Physik</div>
 <div id="login">
+<div id="loginoutside">
+Please log in at the touchscreen outside.
+</div>
 <form id="loginform">
 <table>
 <tr class="formrow">
@@ -44,8 +50,12 @@ var showloggedinuser = false;
 Logging in...
 </div>
 <div id="loggedin" style="display: none">
-Currently logged in
+Currently logged in:
 <div id="loggedin_name"></div>
+<div id="please_logout">
+Please log out <span id="logoutoutside">at the touchscreen outside</span> when you leave.<br />
+You are responsible for anything that happens in the CIP Pool while you are logged in!
+</div>
 <input type="button" id="logoutbutton" onclick="logout()" value="Log out" />
 </div>
 <input type="button" id="updatebutton" onclick="update()" value="Update" />

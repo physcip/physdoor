@@ -32,6 +32,11 @@ body
 {
 }
 
+#loginoutside, #logoutoutside
+{
+	display: none;
+}
+
 #loginform
 {
 	float: left;
@@ -89,6 +94,12 @@ body
 	height: 75%;
 	width: 100%;
 	position: relative;
+}
+#please_logout
+{
+	line-height: 1em;
+	position: absolute;
+	bottom: 2.5em;
 }
 #loggedin_name
 {
