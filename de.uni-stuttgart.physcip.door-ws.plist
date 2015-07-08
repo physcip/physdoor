@@ -9,7 +9,7 @@
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/bin/php</string>
-		<string>/Sites/physdoor/websocket.php</string>
+		<string>/Library/Server/Web/Data/Sites/Default/physdoor/websocket.php</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>

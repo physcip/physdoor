@@ -13,10 +13,10 @@
 	define('netio_port', 50290);
 	define('netio_contact', '4');
 	
-	define('screenlock_range', '129.69.74.132-154'); // multiple ranges can be comma-separated; individual IPs can also be added
+	define('screenlock_range', '129.69.74.132-155'); // multiple ranges can be comma-separated; individual IPs can also be added
 	define('screenlock_port', 49777);
 	
-	define('mysql_host', '127.0.0.1');
+	define('mysql_host', '129.69.74.129');
 	define('mysql_user', 'doorloggerz');
 	//define('mysql_pass', '');
 	define('mysql_db', 'door');
