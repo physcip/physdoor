@@ -1,5 +1,5 @@
 <?php
-	$allowedclients = array('door-pc-1.physcip.uni-stuttgart.de', 'door-pc-2.physcip.uni-stuttgart.de');
+	$allowedclients = array('door-pc-1.physcip.uni-stuttgart.de', 'door-pc-2.physcip.uni-stuttgart.de', 'localhost');
 	if (php_sapi_name() != 'cli' && !in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), $allowedclients))
 		die('Unauthorized');
 	
@@ -26,6 +26,7 @@
 	define('master_name', 'door-pc-2.physcip.uni-stuttgart.de');
 	$outside_names = array();
 	$notouch_names = array('door-pc-1.physcip.uni-stuttgart.de');
+	$anonymize_names = array('door-pc-2.physcip.uni-stuttgart.de');
 	
 	$deny_users = array('physreg');
 	

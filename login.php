@@ -54,7 +54,13 @@
 			if ($user = logged_on_user()) // someone is logged in
 			{
 				$userinfo = get_ldap_user($user);
-				$name = $userinfo[0]['cn'][0];
+				$name = $userinfo[0]['givenname'][0] . " " . $userinfo[0]['sn'][0];
+				if (in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), $anonymize_names))
+				{
+					$initials = array();
+					preg_match_all('/[A-Z]/', $name, $initials);
+					$name = implode(". ", $initials[0]) . ".";
+				}
 				
 				$json['loggedin'] = TRUE;
 				$json['name'] = $name;
