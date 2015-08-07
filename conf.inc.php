@@ -16,10 +16,7 @@
 	define('screenlock_range', '129.69.74.132-155'); // multiple ranges can be comma-separated; individual IPs can also be added
 	define('screenlock_port', 49777);
 	
-	define('mysql_host', '129.69.74.129');
-	define('mysql_user', 'doorloggerz');
-	//define('mysql_pass', '');
-	define('mysql_db', 'door');
+	define('database', 'db/door.db');
 	
 	define('websocket_port', 9988);
 	
@@ -29,6 +26,4 @@
 	$anonymize_names = array('door-pc-2.physcip.uni-stuttgart.de');
 	
 	$deny_users = array('physreg');
-	
-	@include_once 'conf_secret.inc.php';
 ?>
