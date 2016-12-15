@@ -3,7 +3,7 @@
 	{
 		$conn = ldap_connect(ldap_server);
 		ldap_set_option($conn, LDAP_OPT_PROTOCOL_VERSION, 3);
-		if (defined("serviceuser"))
+		if (defined("ldap_serviceuser"))
 			$bind = ldap_bind($conn, ldap_serviceuser, ldap_servicepassword);
 		else
 			$bind = ldap_bind($conn);
