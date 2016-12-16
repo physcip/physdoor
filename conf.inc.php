@@ -3,11 +3,12 @@
 	if (php_sapi_name() != 'cli' && !in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), $allowedclients))
 		die('Unauthorized');
 	
-	define('ldap_base', 'dc=purple,dc=physcip,dc=uni-stuttgart,dc=de');
-	define('ldap_server', 'ldaps://purple.physcip.uni-stuttgart.de/');
+	define('ldap_base', 'dc=physcip,dc=uni-stuttgart,dc=de');
+	define('ldap_server', 'ldaps://dc01.physcip.uni-stuttgart.de ldaps://dc02.physcip.uni-stuttgart.de');
 	define('ldap_uid', 'uid');
 	//define('ldap_serviceuser', '');
 	//define('ldap_servicepassword', '');
+	@include 'conf_secret.inc.php';
 	
 	define('netio_host', 'vm02.physcip.uni-stuttgart.de');
 	define('netio_port', 50290);
