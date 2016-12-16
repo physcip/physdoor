@@ -1,2 +1,3 @@
 conf_secret.inc.php
 tmp
+db/*.db
