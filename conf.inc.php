@@ -13,7 +13,11 @@
 	define('netio_host', 'vm02.physcip.uni-stuttgart.de');
 	define('netio_port', 50290);
 	define('netio_contact', '4');
-	
+
+	// DFR0222 "physdoor-relay" board that closes door opener contact
+	define('relay_host', 'physdoor-relay.physcip.uni-stuttgart.de');
+	define('relay_auth_timeframe', 50);
+
 	define('screenlock_range', '129.69.74.132-155'); // multiple ranges can be comma-separated; individual IPs can also be added
 	define('screenlock_port', 49777);
 	

@@ -12,6 +12,7 @@
 	require_once 'db.inc.php';
 	require_once 'netio.inc.php';
 	require_once 'screenlock.inc.php';
+	require_once 'relay.inc.php';
 	
 	header('Cache-Control: no-cache, must-revalidate');
 	header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
@@ -27,6 +28,7 @@
 			{
 				log_entry($user[0][ldap_uid][0],0);
 				open_door(netio_host, netio_port, netio_contact);
+				relay_open_door();
 				$json['loggedin'] = TRUE;
 				
 				$name = $user[0]['cn'][0];
