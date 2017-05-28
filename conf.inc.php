@@ -1,5 +1,5 @@
 <?php
-	$allowedclients = array('door-pc-1.physcip.uni-stuttgart.de', 'door-pc-2.physcip.uni-stuttgart.de', 'localhost');
+	$allowedclients = array('door-pc-1.physcip.uni-stuttgart.de', 'door-pc-2.physcip.uni-stuttgart.de', 'localhost', 'localhost.localdomain');
 	if (php_sapi_name() != 'cli' && !in_array(gethostbyaddr($_SERVER['REMOTE_ADDR']), $allowedclients))
 		die('Unauthorized');
 	
