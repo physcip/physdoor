@@ -10,16 +10,14 @@
 		$hash = bb\Sha3\Sha3::hash($concat, 256);
 
 		# Send HTTP POST request with key as POST data
-		$options = array(
-			"http" => array(
-				"header" => "Content-type: text/plain\r\n",
-				"method" => "POST",
-				"content" => $hash
-			)
-		);
-		$context = stream_context_create($options);
-		$result = file_get_contents("http://" . relay_host . "/" . $action, false, $context);
-		return $result === "ok\r\n";
+		$curl = curl_init("http://" . relay_host . "/" . $action);
+		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $hash);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		$response = curl_exec($curl);
+		curl_close($curl);
+
+		return $response === "ok\r\n";
 	}
 
 	function relay_open_door() {
