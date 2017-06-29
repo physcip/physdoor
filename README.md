@@ -1,6 +1,6 @@
 # Physdoor
-## Setup development environment
-* Add file `confg_secret.inc.php` and set LDAP serviceuser and password as well as the password for the physdoor-relay:
+## Development environment setup
+* Add file `config_secret.inc.php` and set LDAP serviceuser and password as well as the password for the physdoor-relay:
 ```php
 <?php
 	define('ldap_serviceuser', 'physdoor@physcip.uni-stuttgart.de');
