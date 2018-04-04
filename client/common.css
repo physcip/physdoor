@@ -1,0 +1,221 @@
+body {
+	margin: 0;
+	height: 100vh;
+	font-family: Helvetica, sans-serif;
+	overflow-x: hidden;
+}
+
+/*
+ * Common: Header
+ */
+#header {
+	top: 0;
+	background: #004191;
+	height: 64px;
+	display: flex;
+}
+
+#header #cip_logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	padding: 7px;
+}
+
+#header #heading {
+	align-self: center;
+	font-size: 36px;
+	font-weight: bold;
+	color: #ffffff;
+	margin: 0 auto;
+}
+
+/*
+ * Common: Content, sections and button styles
+ */
+#content {
+	color: #232323;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 40px;
+}
+
+.section {
+	padding: 20px;
+	box-shadow: inset 0px 0px 0px 2px #a0a0a0;
+	max-width: 650px;
+	width: 80vw;
+	margin: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.section_header {
+	font-weight: bold;
+	font-size: 26px;
+	margin-bottom: 5px;
+	width: 100%;
+}
+
+.section_explanation {
+	font-size: 22px;
+	width: 100%;
+}
+
+.section .button_container {
+	margin-top: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+button {
+	display: flex;
+	margin-right: 10px;
+	text-transform: uppercase;
+	padding: 14px 30px;
+	background: #004191;
+	transition: background 0.2s;
+	border: none;
+	color: #ffffff;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #323232;
+	transition: background 0.2s;
+}
+
+/*
+ * Common: Loggedin section
+ */
+#loggedin_section #loggedin_name {
+	font-size: 50px;
+	margin: 20px 0;
+}
+
+/*
+ * Primary only: Login section
+ */
+#login_section {
+	font-size: 24px;
+}
+
+#login_section table {
+	margin-top: 20px;
+}
+
+#login_section td {
+	padding: 0 10px;
+}
+
+#login_section input[type="text"], #login_section input[type="password"] {
+	padding: 4px;
+	font-size: 24px;
+	border: 2px solid #000000;
+}
+
+#login_section input[type="text"]:focus, #login_section input[type="password"]:focus {
+	border: 2px solid #00beff;
+}
+
+/*
+ * Primary only: Physcip / Physdash switching
+ */
+#physdash_open_button {
+	position: fixed;
+	bottom: 0;
+	background: #000000;
+	width: 100vw;
+	padding: 7px;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#physdash_container {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background: #ffffff;
+	flex-direction: column;
+
+	/* Default: invisible, set to flex by javascript when displayed */
+	display: none;
+}
+
+#physdash_close_button {
+	background: #000000;
+	width: 100vw;
+	padding: 7px;
+	display: flex;
+	justify-content: center;
+	cursor: pointer;
+}
+
+#physdash_open_text, #physdash_close_text {
+	margin: 0 30px;
+	color: #ffffff;
+	font-size: 25px;
+}
+
+#physdash_frame {
+	flex: 0 1 auto;
+	height: 100%;
+}
+
+/*
+ * Primary only: Error message
+ */
+#error_message {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background: rgba(255, 255, 255, 0.6);
+
+	justify-content: center;
+	align-items: center;
+
+	/* Default: invisible, set to flex by javascript when displayed */
+	display: none;
+}
+
+#error_dialog {
+	box-shadow: inset 0px 0px 0px 5px #f02020;
+	padding: 20px;
+	background: white;
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#error_dialog #error_dialog_header {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#error_dialog #error_dialog_message {
+	margin: 10px 0;
+	font-size: 22px;
+}
+
+#error_dialog #error_dialog_ok {
+	border: 2px solid 
+}
+
+/*
+ * Secondary only: Noone logged in section
+ */
+#noone_loggedin_section {
+	box-shadow: inset 0px 0px 0px 5px #f02020;
+}

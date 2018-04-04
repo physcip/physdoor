@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhysDoor Primary</title>
+
+	<!-- ALL scripts are included here -->
+	<script src="marked.min.js"></script>
+	<script src="common.js"></script>
+	<script src="primary.js"></script>
+
+	<!-- ALL stylesheets are included here -->
+	<link rel="stylesheet" href="common.css">
+
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<!-- Header -->
+	<div id="header">
+		<img id="cip_logo" src="img/cip_logo_white.svg">
+		<div id="heading">Door Access Control</div>
+	</div>
+
+	<!-- Content -->
+	<div id="content">
+		<div class="section" id="login_section">
+			<div class="section_header">Open Door / Unlock Computers</div>
+
+			<div class="section_explanation">
+				Please enter your CIP pool account credentials to log in. You are then responsible for anything that happens in the CIP pool. This will activate the door opener and unlock all computers.
+			</div>
+			<table>
+				<tr>
+					<td align="right">Username</td>
+					<td><input type="text" name="user" id="username" placeholder="st123456"/></td>
+				</tr>
+				<tr>
+					<td align="right">Password</td>
+					<td><input type="password" name="password" id="password" /></td>
+				</tr>
+			</table>
+
+			<div class="button_container">
+				<button id="login_button">Login</button>
+			</div>
+		</div>
+
+		<div class="section" id="loggedin_section">
+			<div class="section_header">Currently logged in:</div>
+			<div id="loggedin_name"></div>
+
+			<div class="section_explanation">
+				You are responsible for anything that happens in the CIP Pool while you are logged in!
+			</div>
+
+			<div class="button_container">
+				<button id="logout_button">Logout</button>
+			</div>
+		</div>
+
+		<div class="section" id="announcement_section">
+			<div class="section_header">Announcements</div>
+			<div id="announcements"></div>
+		</div>
+	</div>
+
+	<!-- Physdash frame -->
+	<div id="physdash_open_button">
+		<img src="img/downarrow-icon.svg" class="physdash_open_downarrow">
+		<div id="physdash_open_text">Dashboard - Create Account / Reset Password</div>
+		<img src="img/downarrow-icon.svg" class="physdash_open_downarrow">
+	</div>
+	<div id="physdash_container">
+		<div id="physdash_close_button">
+			<img src="img/uparrow-icon.svg" class="physdash_close_uparrow">
+			<div id="physdash_close_text">Back to Door Access Control</div>
+			<img src="img/uparrow-icon.svg" class="physdash_close_uparrow">
+		</div>
+
+		<iframe id="physdash_frame"></iframe>
+	</div>
+
+	<!-- Error message -->
+	<div id="error_message">
+		<div id="error_dialog">
+			<div id="error_dialog_header">Error</div>
+			<div id="error_dialog_message"></div>
+			<button id="error_dialog_ok">OK</button>
+		</div>
+	</div>
+</body>
+</html>

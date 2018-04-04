@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhysDoor Secondary</title>
+
+	<!-- ALL scripts are included here -->
+	<script src="marked.min.js"></script>
+	<script src="common.js"></script>
+	<script src="secondary.js"></script>
+
+	<!-- ALL stylesheets are included here -->
+	<link rel="stylesheet" href="common.css">
+
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<!-- Header -->
+	<div id="header">
+		<img id="cip_logo" src="img/cip_logo_white.svg">
+		<div id="heading">Door Access Control</div>
+	</div>
+
+	<!-- Content -->
+	<div id="content">
+		<div class="section" id="loggedin_section">
+			<div class="section_header">Currently logged in:</div>
+			<div id="loggedin_name"></div>
+
+			<div class="section_explanation">
+				You are responsible for anything that happens in the CIP Pool while you are logged in!
+			</div>
+		</div>
+
+		<div class="section" id="noone_loggedin_section">
+			<div class="section_header">Nobody currently logged in</div>
+
+			<div class="section_explanation">
+				Please log in at the touchscreen outside to unlock the computers!
+			</div>
+		</div>
+
+		<div class="section" id="announcement_section">
+			<div class="section_header">Announcements</div>
+			<div id="announcements"></div>
+		</div>
+	</div>
+</body>
+</html>
