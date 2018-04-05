@@ -1,5 +1,14 @@
 var PHYSDASH_SOURCE = "https://www.physcip.uni-stuttgart.de/physdash/?kioskmode=1";
 
+// UPDATE_STATUS_INTERVAL: Interval (in seconds) in which logged in / logged out status of primary is updated
+// Primary updates also take care of locking / unlocking computer screens
+var UPDATE_STATUS_INTERVAL = 60;
+
+// After a user has locked out, wait this time (in seconds) before locking all screens
+var SCREENLOCK_GRACEPERIOD = 40;
+
+var lockscreen_gracetimer;
+
 /*
  * Error messages
  */
@@ -15,6 +24,19 @@ function onErrorClose() {
 function timeoutError() {
 	showErrorMessage("A timeout occurred - please contact the administrators if this keeps happening.");
 }
+
+/*
+ * Screen locking
+ */
+function lockScreens() {
+	physdoorAction("lock", {}, function(res) {}, function() {});
+}
+
+function unlockScreens() {
+	physdoorAction("unlock", {}, function(res) {}, function() {});
+}
+
+
 
 /*
  * Physdash frame
@@ -47,10 +69,15 @@ function showLoggedinSection(name) {
 
 function updateStatus() {
 	physdoorAction("status", {}, function(res) {
-		if ("loggedin" in res && res.loggedin === true)
+		if ("loggedin" in res && res.loggedin === true) {
 			showLoggedinSection(res.name);
-		else
+			unlockScreens();
+			clearTimeout(lockscreen_gracetimer);
+		} else {
+			if ("loggedin" in res && res.loggedin === false)
+				lockscreen_gracetimer = setTimeout(lockScreens, SCREENLOCK_GRACEPERIOD * 1000);
 			showLoginSection();
+		}
 	}, showLoginSection);
 }
 
@@ -104,4 +131,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("login_button").addEventListener("click", onLoginClick);
 	document.getElementById("logout_button").addEventListener("click", onLogoutClick);
 	updateStatus();
+
+	// Update status every UPDATE_STATUS_INTERVAL seconds in case we are out of sync for some reason
+	// This also takes care of locking / unlocking screens of previously disconnected clients
+	setInterval(updateStatus, UPDATE_STATUS_INTERVAL * 1000);
 });
