@@ -23,7 +23,9 @@
 	 * Screenlock Configuration
 	 */
 	// multiple ranges can be comma-separated; individual IPs can also be added
-	define("screenlock_range", "129.69.74.132-155");
+	// TODO: define("screenlock_range", "129.69.74.132-155");
+	// for testing: just tywin
+	define("screenlock_range", "129.69.74.156");
 	define("screenlock_port", 49777);
 
 	/*
