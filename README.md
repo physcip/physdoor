@@ -23,7 +23,7 @@ Physdoor can also be used to display announcements to users (e.g. scheduled main
 ```
 cp client/announcements.md.example client/announcements.md
 ```
-Then edit `client/announcements.md` to add your announcement or leave the file empty (except for comments) if you want the announcement box to disappear.
+Then edit `client/announcements.md` to add your announcement or leave the file empty (except for comments) if you want the announcement box to disappear. Announcements are refreshed every 5 minutes (see `UPDATE_ANNOUNCEMENTS_MINUTES` in `client/common.js`).
 
 ## Attribution
 * `Sha3.php` was written by [Bruno Bierbaumer](https://github.com/0xbb), it is a [pure PHP implementation of SHA3 (Keccak)](https://github.com/0xbb/php-sha3)
