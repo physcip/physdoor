@@ -66,7 +66,7 @@ function showLoginSection() {
 }
 
 function showLoggedinSection(name) {
-	document.getElementById("loggedin_name").textContent = name;
+	document.getElementById("loggedin_name").textContent = name.split(" ")[0];
 	document.getElementById("loggedin_section").style.display = "flex";
 	document.getElementById("login_section").style.display = "none";
 }
