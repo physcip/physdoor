@@ -55,8 +55,12 @@ function onPhysdashOpen() {
  * In case of failure: Default to displaying login section and hiding loggedin section
  */
 function showLoginSection() {
-	document.getElementById("password").value = "";
-	document.getElementById("username").value = "";
+	// Only clear username and password when login section was previously hidden
+	if (document.getElementById("login_section").style.display != "flex") {
+		document.getElementById("password").value = "";
+		document.getElementById("username").value = "";
+	}
+
 	document.getElementById("loggedin_section").style.display = "none";
 	document.getElementById("login_section").style.display = "flex";
 }
@@ -87,6 +91,7 @@ function updateStatus() {
 function onLoginClick() {
 	var username = document.getElementById("username").value;
 	var password = document.getElementById("password").value;
+	document.getElementById("password").value = "";
 
 	if (username.length == 0) {
 		showErrorMessage("Please enter a valid username");
@@ -102,12 +107,10 @@ function onLoginClick() {
 		user : username,
 		password : password
 	}, function(res) {
-		if ("loggedin" in res && res.loggedin === true) {
+		if ("loggedin" in res && res.loggedin === true)
 			updateStatus();
-		} else {
-			document.getElementById("password").value = "";
+		else
 			showErrorMessage(res.error);
-		}
 	}, timeoutError);
 }
 
