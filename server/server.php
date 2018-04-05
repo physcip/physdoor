@@ -23,7 +23,7 @@
 			$user = get_ldap_user($_POST["user"]);
 			if ($user !== FALSE && check_ldap_password($user[0]["dn"], $_POST["password"])) {
 				log_entry($user[0][ldap_uid][0],0);
-				// TODO: relay_open_door();
+				relay_open_door();
 
 				$json["loggedin"] = TRUE;
 				
