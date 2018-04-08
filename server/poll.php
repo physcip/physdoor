@@ -1,7 +1,7 @@
 <?php
 	require_once "conf.inc.php";
 
-	set_time_limit(long_polling_interval * 1000);
+	set_time_limit(long_polling_interval);
 	$request_time = time();
 
 	for (;;) {
