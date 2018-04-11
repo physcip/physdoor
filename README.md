@@ -2,7 +2,7 @@
 ## Development environment setup
 * Create secret configuration file and set LDAP serviceuser and password as well as the password for the [physdoor-relay](https://github.com/physcip/physdoor-relay):
 ```
-cp server/config_secret.inc.php.example server/config_secret.inc.php
+cp server/conf_secret.inc.php.example server/conf_secret.inc.php
 ```
 * Generate empty AccessLog database: Execute `sqlite3 door.db < door.sql` in `server/db` directory
 * Unfortunately, using the PHP's builtin webserver is not possible, since it runs in only one single-threaded process and therefore doesn't support long polling. Therefore, you will need to setup Apache / nginx / Caddy or another webserver. For simplicity, these are the instructions for [Caddy](https://caddyserver.com/).
