@@ -3,7 +3,6 @@
 
 	set_time_limit(long_polling_interval + 1);
 	$request_time = time();
-	$seconds_since_request = 0;
 
 	for (;;) {
 		clearstatcache();
@@ -14,8 +13,9 @@
 			break;
 		} else {
 			usleep(0.5 * 1000000);
-			$seconds_since_request += 0.5;
-			if ($seconds_since_request > long_polling_interval) {
+
+			// Stop in case of timeout
+			if (time() - $request_time >= long_polling_interval) {
 				http_response_code(408);
 				break;
 			}
