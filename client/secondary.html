@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+   
 	<title>PhysDoor Secondary</title>
-
 	<!-- ALL scripts are included here -->
 	<script src="marked.min.js"></script>
 	<script src="common.js"></script>
 	<script src="secondary.js"></script>
+    <script src="popup.js"></script>
+
 
 	<!-- ALL stylesheets are included here -->
 	<link rel="stylesheet" href="common.css">
@@ -41,9 +43,19 @@
 		</div>
 
 		<div class="section" id="announcement_section">
-			<div class="section_header">Announcements</div>
-			<div id="announcements"></div>
+			<div class="section_header">
+                <p style="text-align: center;">Announcements</p>            
+            </div>
+		<div id="announcements"></div>
+		</div>
+
+        <div class="section" id="cactus">
+			<div class="section_header">
+                <p style="text-align: center;">Melden Sie sich bei cactUS-Web an</p>            
+            </div>
+        <div id="cactus"><button href="https://cactus.uni-stuttgart.de/" onclick="return popup(this)" title="cactus"><b>cactUS Web</b></button></div>
 		</div>
 	</div>
+
 </body>
 </html>
